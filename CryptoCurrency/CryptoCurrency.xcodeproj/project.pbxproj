@@ -17,8 +17,13 @@
 		744E104F2996FD3E00E08B1F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 744E104E2996FD3E00E08B1F /* Kingfisher */; };
 		744E10542996FEB700E08B1F /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 744E10532996FEB700E08B1F /* SVGKit */; };
 		744E10562996FEB700E08B1F /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 744E10552996FEB700E08B1F /* SVGKitSwift */; };
-		744E10592997003C00E08B1F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E10582997003C00E08B1F /* Helpers.swift */; };
 		74623BA92996F1B2006AA244 /* CryptoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74623BA82996F1B2006AA244 /* CryptoVC.storyboard */; };
+		74951B6A299980780029AC13 /* CryptoDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74951B69299980780029AC13 /* CryptoDetailVC.storyboard */; };
+		74951B6C299980910029AC13 /* CryptoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74951B6B299980910029AC13 /* CryptoDetailVC.swift */; };
+		74951B71299980F40029AC13 /* CryptoDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74951B70299980F40029AC13 /* CryptoDetailContracts.swift */; };
+		74951B73299981030029AC13 /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74951B72299981030029AC13 /* CryptoDetailViewModel.swift */; };
+		74951B75299981110029AC13 /* CryptoDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74951B74299981110029AC13 /* CryptoDetailBuilder.swift */; };
+		74951B7829998C220029AC13 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 74951B7729998C220029AC13 /* SDWebImageSVGCoder */; };
 		74A5C2B329904505009E055F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5C2B229904505009E055F /* AppDelegate.swift */; };
 		74A5C2B529904505009E055F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5C2B429904505009E055F /* SceneDelegate.swift */; };
 		74A5C2BC29904506009E055F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74A5C2BB29904506009E055F /* Assets.xcassets */; };
@@ -83,8 +88,12 @@
 		744066932996E583008CAA22 /* CryptoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListCell.swift; sourceTree = "<group>"; };
 		744066962996E6D6008CAA22 /* CryptoPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPresentation.swift; sourceTree = "<group>"; };
 		7440669B2996EA4B008CAA22 /* CryptoListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListBuilder.swift; sourceTree = "<group>"; };
-		744E10582997003C00E08B1F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		74623BA82996F1B2006AA244 /* CryptoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CryptoVC.storyboard; sourceTree = "<group>"; };
+		74951B69299980780029AC13 /* CryptoDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CryptoDetailVC.storyboard; sourceTree = "<group>"; };
+		74951B6B299980910029AC13 /* CryptoDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVC.swift; sourceTree = "<group>"; };
+		74951B70299980F40029AC13 /* CryptoDetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailContracts.swift; sourceTree = "<group>"; };
+		74951B72299981030029AC13 /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
+		74951B74299981110029AC13 /* CryptoDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailBuilder.swift; sourceTree = "<group>"; };
 		74A5C2AF29904505009E055F /* CryptoCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A5C2B229904505009E055F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74A5C2B429904505009E055F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 				744E104F2996FD3E00E08B1F /* Kingfisher in Frameworks */,
 				7440669A2996E982008CAA22 /* SDWebImage in Frameworks */,
 				744E10562996FEB700E08B1F /* SVGKitSwift in Frameworks */,
+				74951B7829998C220029AC13 /* SDWebImageSVGCoder in Frameworks */,
 				744E10542996FEB700E08B1F /* SVGKit in Frameworks */,
 				74A5C2EE2990453D009E055F /* CryptoCrazyAPI.framework in Frameworks */,
 			);
@@ -138,14 +148,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		744E10572997002F00E08B1F /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				744E10582997003C00E08B1F /* Helpers.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		74A5C2A629904505009E055F = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +173,6 @@
 		74A5C2B129904505009E055F /* CryptoCurrency */ = {
 			isa = PBXGroup;
 			children = (
-				744E10572997002F00E08B1F /* Helpers */,
 				744066952996E6C6008CAA22 /* Model */,
 				74AA1C282991B73A0049D01C /* CryptoDetail */,
 				74AA1C272991B7300049D01C /* CryptoList */,
@@ -251,6 +252,11 @@
 		74AA1C282991B73A0049D01C /* CryptoDetail */ = {
 			isa = PBXGroup;
 			children = (
+				74951B69299980780029AC13 /* CryptoDetailVC.storyboard */,
+				74951B6B299980910029AC13 /* CryptoDetailVC.swift */,
+				74951B70299980F40029AC13 /* CryptoDetailContracts.swift */,
+				74951B72299981030029AC13 /* CryptoDetailViewModel.swift */,
+				74951B74299981110029AC13 /* CryptoDetailBuilder.swift */,
 			);
 			path = CryptoDetail;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 				744E104E2996FD3E00E08B1F /* Kingfisher */,
 				744E10532996FEB700E08B1F /* SVGKit */,
 				744E10552996FEB700E08B1F /* SVGKitSwift */,
+				74951B7729998C220029AC13 /* SDWebImageSVGCoder */,
 			);
 			productName = CryptoCurrency;
 			productReference = 74A5C2AF29904505009E055F /* CryptoCurrency.app */;
@@ -354,6 +361,7 @@
 				744066982996E982008CAA22 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				744E104D2996FD3E00E08B1F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				744E10522996FEB700E08B1F /* XCRemoteSwiftPackageReference "SVGKit" */,
+				74951B7629998C220029AC13 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 			);
 			productRefGroup = 74A5C2B029904505009E055F /* Products */;
 			projectDirPath = "";
@@ -395,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74623BA92996F1B2006AA244 /* CryptoVC.storyboard in Resources */,
+				74951B6A299980780029AC13 /* CryptoDetailVC.storyboard in Resources */,
 				74A5C2BF29904506009E055F /* LaunchScreen.storyboard in Resources */,
 				74A5C2BC29904506009E055F /* Assets.xcassets in Resources */,
 			);
@@ -424,13 +433,16 @@
 				7440669C2996EA4B008CAA22 /* CryptoListBuilder.swift in Sources */,
 				744066972996E6D6008CAA22 /* CryptoPresentation.swift in Sources */,
 				744066902996E406008CAA22 /* CryptoListViewModel.swift in Sources */,
-				744E10592997003C00E08B1F /* Helpers.swift in Sources */,
+				74951B75299981110029AC13 /* CryptoDetailBuilder.swift in Sources */,
+				74951B73299981030029AC13 /* CryptoDetailViewModel.swift in Sources */,
 				74A5C2B329904505009E055F /* AppDelegate.swift in Sources */,
 				74A5C2B529904505009E055F /* SceneDelegate.swift in Sources */,
 				744066942996E583008CAA22 /* CryptoListCell.swift in Sources */,
+				74951B71299980F40029AC13 /* CryptoDetailContracts.swift in Sources */,
 				74AA1C262991B5470049D01C /* Util.swift in Sources */,
 				7440668C2996E3EB008CAA22 /* CryptoListVC.swift in Sources */,
 				744066922996E412008CAA22 /* CryptoListContracts.swift in Sources */,
+				74951B6C299980910029AC13 /* CryptoDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +800,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		74951B7629998C220029AC13 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -810,6 +830,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 744E10522996FEB700E08B1F /* XCRemoteSwiftPackageReference "SVGKit" */;
 			productName = SVGKitSwift;
+		};
+		74951B7729998C220029AC13 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74951B7629998C220029AC13 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

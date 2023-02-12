@@ -19,6 +19,11 @@ enum CryptoListViewModelOutput {
     case showCryptoList([CryptoPresentation])
 }
 
+enum CryptoListViewRoute {
+    case detail(CryptoDetailListViewModelProtocol)
+}
+
 protocol CryptoListViewModelDelegate : class {
     func handleViewOutput(_ output: CryptoListViewModelOutput)
+    func navigate(to route: CryptoListViewRoute)
 }

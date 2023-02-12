@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import SVGKit
+import SDWebImageSVGCoder
 
 class CryptoListCell: UITableViewCell {
 
@@ -26,6 +28,8 @@ class CryptoListCell: UITableViewCell {
         
         cellView.layer.cornerRadius = 40
         cellView.layer.masksToBounds = true
+        let SVGCoder = SDImageSVGCoder.shared
+        SDImageCodersManager.shared.addCoder(SVGCoder)
 
     }
 
@@ -37,11 +41,18 @@ class CryptoListCell: UITableViewCell {
     
     func setup(coins : CryptoPresentation) {
 
-        let priceString = coins.price.replacingOccurrences(of: ",", with: "")
+        let priceString = coins.price.replacingOccurrences(of: ",", with: ",")
         
         cellNameLabel.text = coins.name
         cellSymbolLabel.text = coins.symbol
         
+        let price = Float(coins.change) ?? 0.0
+        if price <= 0 {
+            
+            cellCurrencyLabel.textColor = UIColor.systemRed
+        } else {
+            cellCurrencyLabel.textColor = UIColor.systemGreen
+        }
         cellCurrencyLabel.text = "% \(coins.change)"
         cellImageView.sd_setImage(with: URL(string: coins.image))
         
@@ -50,13 +61,10 @@ class CryptoListCell: UITableViewCell {
             cellPriceLabel.text = "$ \(formattedNumber)" 
         }
        
-        let price = Float(priceString) ?? 0.0
-        if price < 0 {
-            cellCurrencyLabel.textColor = .red
-        } else {
-            cellCurrencyLabel.textColor = UIColor.systemGreen
-        }
+      
 
     }
 
 }
+
+

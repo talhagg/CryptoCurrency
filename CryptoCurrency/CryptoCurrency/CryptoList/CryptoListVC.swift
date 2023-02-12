@@ -57,6 +57,14 @@ class CryptoListVC: UIViewController {
 }
 
 extension CryptoListVC : CryptoListViewModelDelegate {
+    func navigate(to route: CryptoListViewRoute) {
+        switch route {
+        case .detail(let cryptoDetailListViewModelProtocol):
+            let viewController = CryptoDetailBuilder.make(with: cryptoDetailListViewModelProtocol)
+            show(viewController, sender: nil)
+        }
+    }
+    
     func handleViewOutput(_ output: CryptoListViewModelOutput) {
         switch output {
         case .isLoading(let bool):
@@ -103,7 +111,7 @@ extension CryptoListVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -300, 0)
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -400, 0)
         cell.layer.transform  = rotationTransform
         cell.alpha = 0.25
         
@@ -112,15 +120,6 @@ extension CryptoListVC : UITableViewDelegate {
             cell.alpha = 1.0
         }
     }
-    /*
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .none:
-                print("hello")
-        default:
-            break
-        }
-    }*/
     
 }
 

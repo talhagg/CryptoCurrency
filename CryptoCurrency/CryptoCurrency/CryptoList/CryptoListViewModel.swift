@@ -17,7 +17,7 @@ final class CryptoListViewModel : CryptoListViewModelProtocol {
         self.service = service
     }
     
-    var cryptoListData : [CryptoPresentation] = []
+    var cryptoListData : [Coins] = []
     
     func load() {
         notify(.isLoading(false))
@@ -27,7 +27,7 @@ final class CryptoListViewModel : CryptoListViewModelProtocol {
             case .success(let success):
                 let data = success.map(CryptoPresentation.init)
                 self.notify(.showCryptoList(data))
-                self.cryptoListData = data
+                self.cryptoListData = success
             case .failure(let failure):
                 print(failure)
             }
@@ -36,6 +36,8 @@ final class CryptoListViewModel : CryptoListViewModelProtocol {
     
     func selectedCrypto(at index: Int) {
         let coins = cryptoListData[index]
+        let viewModel = CryptoDetailListViewModel(coins: coins)
+        delegate?.navigate(to: .detail(viewModel))
     }
     
     private func notify(_ output: CryptoListViewModelOutput) {
