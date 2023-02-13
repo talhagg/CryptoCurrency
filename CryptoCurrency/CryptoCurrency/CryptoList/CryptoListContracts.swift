@@ -11,7 +11,7 @@ import Foundation
 protocol CryptoListViewModelProtocol : class {
     var delegate : CryptoListViewModelDelegate? { get set }
     func load()
-    func selectedCrypto(at index: Int)
+    func selectedCrypto(_ crypto: CryptoPresentation)
 }
 
 enum CryptoListViewModelOutput {

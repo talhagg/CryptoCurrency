@@ -12,8 +12,8 @@ final class CryptoDetailListViewModel : CryptoDetailListViewModelProtocol {
     var delegate: CryptoDetailListViewModelDelegate?
     private let presentation : CryptoPresentation
     
-    init(coins: Coins) {
-        self.presentation = CryptoPresentation(coins: coins)
+    init(coins: CryptoPresentation) {
+        self.presentation = coins
     }
     
     func load() {

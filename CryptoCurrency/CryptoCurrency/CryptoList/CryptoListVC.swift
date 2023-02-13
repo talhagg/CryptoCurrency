@@ -103,7 +103,8 @@ extension CryptoListVC : UITableViewDataSource {
 
 extension CryptoListVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectedCrypto(at: indexPath.row)
+        let crypto = cryptoList[indexPath.row]
+        viewModel.selectedCrypto(crypto)
     }
     
    
@@ -208,9 +209,11 @@ extension CryptoListVC : UISearchBarDelegate {
                 } else {
                     return false
                 }
-                
+                    
             })
         }
+       
+        
         self.tableView.reloadData()
     }
 }

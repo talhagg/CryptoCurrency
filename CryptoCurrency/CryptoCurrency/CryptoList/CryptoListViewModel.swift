@@ -35,9 +35,9 @@ final class CryptoListViewModel : CryptoListViewModelProtocol {
         }
     }
     
-    func selectedCrypto(at index: Int) {
-        let coins = cryptoListData[index]
-        let viewModel = CryptoDetailListViewModel(coins: coins)
+    func selectedCrypto(_ crypto: CryptoPresentation) {
+        //let coins = cryptoListData[index]
+        let viewModel = CryptoDetailListViewModel(coins: crypto)
         delegate?.navigate(to: .detail(viewModel))
     }
     
