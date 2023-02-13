@@ -31,6 +31,9 @@ class CryptoListVC: UIViewController {
         }
     }
     
+    
+    @IBOutlet weak var filterButton: UIButton!
+    
     let refreshControl = UIRefreshControl()
     private var cryptoList : [CryptoPresentation] = []
     private var filterList : [CryptoPresentation] = []
@@ -42,19 +45,14 @@ class CryptoListVC: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
 
         viewModel.load()
-        
-        title = "Coins"
-        
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(filterData))
-        
+    
         tableView.refreshControl = refreshControl
+        
+        setupMenu()
     }
     
-
-
-
 }
+
 
 extension CryptoListVC : CryptoListViewModelDelegate {
     func navigate(to route: CryptoListViewRoute) {
@@ -74,11 +72,14 @@ extension CryptoListVC : CryptoListViewModelDelegate {
             self.cryptoList = array
             self.filterList = array
             self.tableView.reloadData()
+        case .updateTitle(let title):
+            self.title = title
         }
     }
     
     
 }
+
 
 extension CryptoListVC : UITableViewDataSource {
     
@@ -111,7 +112,7 @@ extension CryptoListVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -400, 0)
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -500, 0)
         cell.layer.transform  = rotationTransform
         cell.alpha = 0.25
         
@@ -125,7 +126,34 @@ extension CryptoListVC : UITableViewDelegate {
 
 
 extension CryptoListVC {
-    @objc func filterData() {
+    
+    func setupMenu() {
+        let optionClosure = {(action: UIAction) in
+            
+            if action.title == "Price" {
+                self.sortedPrice()
+            } else if action.title == "Change" {
+                self.sortedCurrency()
+            } else if action.title == "Name" {
+                self.sortedName()
+            } else if action.title == "Market Cap" {
+                self.sortedMarketCap()
+            }
+        }
+        
+        filterButton.menu = UIMenu(children: [
+            UIAction(title: "Price", state: .on, handler: optionClosure),
+            UIAction(title: "Change", state: .on, handler: optionClosure),
+            UIAction(title: "Market Cap", state: .on, handler: optionClosure),
+            UIAction(title: "Name", state: .on, handler: optionClosure)
+        ])
+        
+        filterButton.showsLargeContentViewer = true
+        filterButton.showsMenuAsPrimaryAction = true
+        filterButton.changesSelectionAsPrimaryAction = true
+    }
+    
+    func sortedPrice() {
         cryptoList.sort { coinOne, coinTwo in
             let priceOne = Double(String(format: "%.2f", Double(coinOne.price.replacingOccurrences(of: ",", with: "")) ?? 0.0)) ?? 0.0
             let priceTwo = Double(String(format: "%.2f", Double(coinTwo.price.replacingOccurrences(of: ",", with: "")) ?? 0.0)) ?? 0.0
@@ -133,6 +161,32 @@ extension CryptoListVC {
         }
         tableView.reloadData()
     }
+    
+    func sortedCurrency() {
+        cryptoList.sort { coinOne, coinTwo in
+            let changeOne = Double(String(format: "%.2f", Double(coinOne.change.replacingOccurrences(of: ",", with: "")) ?? 0.0)) ?? 0.0
+            let changeTwo = Double(String(format: "%.2f", Double(coinTwo.change.replacingOccurrences(of: ",", with: "")) ?? 0.0)) ?? 0.0
+            return changeOne > changeTwo
+        }
+        tableView.reloadData()
+    }
+    
+    func sortedName() {
+        cryptoList.sort { coinOne, coinTwo in
+            return coinOne.name < coinTwo.name
+        }
+        tableView.reloadData()
+    }
+    
+    func sortedMarketCap() {
+        cryptoList.sort { coinOne, coinTwo in
+            let marketOne = Int(coinOne.marketCap) ?? 0
+            let marketTwo = Int(coinTwo.marketCap) ?? 0
+            return marketOne > marketTwo
+        }
+        tableView.reloadData()
+    }
+    
     
     @objc func refreshData() {
         viewModel.load()

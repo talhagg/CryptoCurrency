@@ -38,13 +38,14 @@ public struct Coins : Decodable {
     public enum CodingKeys : String, CodingKey {
         case uuid, symbol, name
         case image = "iconUrl"
-        case price, change
+        case marketCap, price, change
     }
     
     public let uuid : String
     public let symbol : String
     public let name : String
     public let image : String
+    public let marketCap : String
     public let price : String
     public let change : String
     

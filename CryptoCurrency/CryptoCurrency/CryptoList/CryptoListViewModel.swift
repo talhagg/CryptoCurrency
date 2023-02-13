@@ -20,6 +20,7 @@ final class CryptoListViewModel : CryptoListViewModelProtocol {
     var cryptoListData : [Coins] = []
     
     func load() {
+        notify(.updateTitle("Coins"))
         notify(.isLoading(false))
         service.fetchData(url: Util.Coins.url) { result in
             self.notify(.isLoading(true))

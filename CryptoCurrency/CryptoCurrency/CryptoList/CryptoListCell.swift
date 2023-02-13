@@ -46,9 +46,8 @@ class CryptoListCell: UITableViewCell {
         cellNameLabel.text = coins.name
         cellSymbolLabel.text = coins.symbol
         
-        let price = Float(coins.change) ?? 0.0
-        if price <= 0 {
-            
+        let change = Float(coins.change) ?? 0.0
+        if change < 0 {
             cellCurrencyLabel.textColor = UIColor.systemRed
         } else {
             cellCurrencyLabel.textColor = UIColor.systemGreen

@@ -15,6 +15,7 @@ protocol CryptoListViewModelProtocol : class {
 }
 
 enum CryptoListViewModelOutput {
+    case updateTitle(String)
     case isLoading(Bool)
     case showCryptoList([CryptoPresentation])
 }
