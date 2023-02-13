@@ -25,6 +25,8 @@ class CryptoDetailVC: UIViewController {
         viewModel.delegate = self
         viewModel.load()
         
+        title = "Detail"
+        
         let SVGCoder = SDImageSVGCoder.shared
         SDImageCodersManager.shared.addCoder(SVGCoder)
     }
@@ -34,9 +36,9 @@ class CryptoDetailVC: UIViewController {
 
 extension CryptoDetailVC : CryptoDetailListViewModelDelegate {
     func showDetail(_ presentation: CryptoPresentation) {
+        
         let priceString = presentation.price.replacingOccurrences(of: ",", with: "")
         
-        print(presentation.name)
         detailNameLabel.text = presentation.name
         detailSymbolLabel.text = presentation.symbol
         
