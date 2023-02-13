@@ -13,6 +13,7 @@ public struct CryptoPresentation {
     let symbol : String
     let name : String
     let image : String
+    let sparkline : [String]
     let marketCap : String
     let price : String
     let change : String
@@ -20,6 +21,6 @@ public struct CryptoPresentation {
 
 extension CryptoPresentation {
     init(coins: Coins) {
-        self.init(uuid: coins.uuid, symbol: coins.symbol, name: coins.name, image: coins.image, marketCap: coins.marketCap, price: coins.price, change: coins.change)
+        self.init(uuid: coins.uuid, symbol: coins.symbol, name: coins.name, image: coins.image, sparkline: coins.sparkline, marketCap: coins.marketCap, price: coins.price, change: coins.change)
     }
 }

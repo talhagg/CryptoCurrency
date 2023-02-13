@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743F2145299ADF47004714D4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 743F2144299ADF47004714D4 /* Charts */; };
 		7440668C2996E3EB008CAA22 /* CryptoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440668B2996E3EB008CAA22 /* CryptoListVC.swift */; };
 		744066902996E406008CAA22 /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440668F2996E406008CAA22 /* CryptoListViewModel.swift */; };
 		744066922996E412008CAA22 /* CryptoListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744066912996E412008CAA22 /* CryptoListContracts.swift */; };
 		744066942996E583008CAA22 /* CryptoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744066932996E583008CAA22 /* CryptoListCell.swift */; };
 		744066972996E6D6008CAA22 /* CryptoPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744066962996E6D6008CAA22 /* CryptoPresentation.swift */; };
-		7440669A2996E982008CAA22 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 744066992996E982008CAA22 /* SDWebImage */; };
 		7440669C2996EA4B008CAA22 /* CryptoListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440669B2996EA4B008CAA22 /* CryptoListBuilder.swift */; };
-		744E104F2996FD3E00E08B1F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 744E104E2996FD3E00E08B1F /* Kingfisher */; };
-		744E10542996FEB700E08B1F /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 744E10532996FEB700E08B1F /* SVGKit */; };
-		744E10562996FEB700E08B1F /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 744E10552996FEB700E08B1F /* SVGKitSwift */; };
 		74623BA92996F1B2006AA244 /* CryptoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74623BA82996F1B2006AA244 /* CryptoVC.storyboard */; };
 		74951B6A299980780029AC13 /* CryptoDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74951B69299980780029AC13 /* CryptoDetailVC.storyboard */; };
 		74951B6C299980910029AC13 /* CryptoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74951B6B299980910029AC13 /* CryptoDetailVC.swift */; };
@@ -114,11 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				744E104F2996FD3E00E08B1F /* Kingfisher in Frameworks */,
-				7440669A2996E982008CAA22 /* SDWebImage in Frameworks */,
-				744E10562996FEB700E08B1F /* SVGKitSwift in Frameworks */,
 				74951B7829998C220029AC13 /* SDWebImageSVGCoder in Frameworks */,
-				744E10542996FEB700E08B1F /* SVGKit in Frameworks */,
+				743F2145299ADF47004714D4 /* Charts in Frameworks */,
 				74A5C2EE2990453D009E055F /* CryptoCrazyAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,11 +273,8 @@
 			);
 			name = CryptoCurrency;
 			packageProductDependencies = (
-				744066992996E982008CAA22 /* SDWebImage */,
-				744E104E2996FD3E00E08B1F /* Kingfisher */,
-				744E10532996FEB700E08B1F /* SVGKit */,
-				744E10552996FEB700E08B1F /* SVGKitSwift */,
 				74951B7729998C220029AC13 /* SDWebImageSVGCoder */,
+				743F2144299ADF47004714D4 /* Charts */,
 			);
 			productName = CryptoCurrency;
 			productReference = 74A5C2AF29904505009E055F /* CryptoCurrency.app */;
@@ -358,10 +349,8 @@
 			);
 			mainGroup = 74A5C2A629904505009E055F;
 			packageReferences = (
-				744066982996E982008CAA22 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				744E104D2996FD3E00E08B1F /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				744E10522996FEB700E08B1F /* XCRemoteSwiftPackageReference "SVGKit" */,
 				74951B7629998C220029AC13 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				743F2143299ADF47004714D4 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 74A5C2B029904505009E055F /* Products */;
 			projectDirPath = "";
@@ -776,28 +765,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		744066982996E982008CAA22 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		743F2143299ADF47004714D4 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		744E104D2996FD3E00E08B1F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		744E10522996FEB700E08B1F /* XCRemoteSwiftPackageReference "SVGKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 4.1.0;
 			};
 		};
 		74951B7629998C220029AC13 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
@@ -811,25 +784,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		744066992996E982008CAA22 /* SDWebImage */ = {
+		743F2144299ADF47004714D4 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 744066982996E982008CAA22 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		744E104E2996FD3E00E08B1F /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 744E104D2996FD3E00E08B1F /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		744E10532996FEB700E08B1F /* SVGKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 744E10522996FEB700E08B1F /* XCRemoteSwiftPackageReference "SVGKit" */;
-			productName = SVGKit;
-		};
-		744E10552996FEB700E08B1F /* SVGKitSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 744E10522996FEB700E08B1F /* XCRemoteSwiftPackageReference "SVGKit" */;
-			productName = SVGKitSwift;
+			package = 743F2143299ADF47004714D4 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 		74951B7729998C220029AC13 /* SDWebImageSVGCoder */ = {
 			isa = XCSwiftPackageProductDependency;

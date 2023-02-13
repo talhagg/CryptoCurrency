@@ -7,7 +7,6 @@
 
 import UIKit
 import SDWebImage
-import SVGKit
 import SDWebImageSVGCoder
 
 class CryptoListCell: UITableViewCell {

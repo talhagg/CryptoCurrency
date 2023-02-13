@@ -10,21 +10,12 @@
       }
     },
     {
-      "identity" : "cocoalumberjack",
+      "identity" : "charts",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
+      "location" : "https://github.com/danielgindi/Charts.git",
       "state" : {
-        "revision" : "0188d31089b5881a269e01777be74c7316924346",
-        "version" : "3.8.0"
-      }
-    },
-    {
-      "identity" : "kingfisher",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "2db469112fbcfd83ff0a96c4546772d283f317f5"
+        "revision" : "07b23476ad52b926be772f317d8f1d4511ee8d02",
+        "version" : "4.1.0"
       }
     },
     {
@@ -32,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "a47bc00770240901a1c99a26c0dad638fa899917"
+        "revision" : "7ccdcb02fb0ab47409a6602769cea0486be2a209",
+        "version" : "5.15.2"
       }
     },
     {
@@ -46,21 +37,21 @@
       }
     },
     {
-      "identity" : "svgkit",
+      "identity" : "swift-algorithms",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SVGKit/SVGKit.git",
+      "location" : "https://github.com/apple/swift-algorithms",
       "state" : {
-        "revision" : "58152b9f7c85eab239160b36ffdfd364aa43d666",
-        "version" : "3.0.0"
+        "revision" : "b14b7f4c528c942f121c8b860b9410b2bf57825e",
+        "version" : "1.0.0"
       }
     },
     {
-      "identity" : "swift-log",
+      "identity" : "swift-numerics",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-log.git",
+      "location" : "https://github.com/apple/swift-numerics",
       "state" : {
-        "revision" : "32e8d724467f8fe623624570367e3d50c5638e46",
-        "version" : "1.5.2"
+        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "version" : "1.0.2"
       }
     }
   ],

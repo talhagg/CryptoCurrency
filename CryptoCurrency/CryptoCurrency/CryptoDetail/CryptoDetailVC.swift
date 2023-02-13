@@ -7,9 +7,10 @@
 
 import UIKit
 import SDWebImageSVGCoder
+import Charts
 
-class CryptoDetailVC: UIViewController {
-
+class CryptoDetailVC: UIViewController, ChartViewDelegate{
+    
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var detailSymbolLabel: UILabel!
@@ -17,28 +18,68 @@ class CryptoDetailVC: UIViewController {
     @IBOutlet weak var detailPriceLabel: UILabel!
     @IBOutlet weak var detailChangeLabel: UILabel!
     
-    var viewModel : CryptoDetailListViewModelProtocol!
     
+    @IBOutlet weak var barChartView: UIView!
+    var barChart = BarChartView()
+    
+    var viewModel : CryptoDetailListViewModelProtocol!
+    private var presentation : CryptoPresentation!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        barChart.delegate = self
+        
         viewModel.delegate = self
         viewModel.load()
         
         title = "Detail"
         
+        barChartView.addSubview(barChart)
+        
         let SVGCoder = SDImageSVGCoder.shared
         SDImageCodersManager.shared.addCoder(SVGCoder)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let chartDescription = Description()
+        chartDescription.text = "Past Values"
+        barChart.chartDescription = chartDescription
+        
+        barChart.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
+        barChart.frame = CGRect(x: 0, y: 0, width: barChartView.frame.size.width, height: barChartView.frame.size.width)
+        
+        var entries = [BarChartDataEntry]()
+        
+        let doubleArray = presentation.sparkline.map({Double($0) ?? 0.0})
+        
+        for x in doubleArray {
+            entries.append(BarChartDataEntry(x: x, y: x))
+        }
+        
+        
+        let set = BarChartDataSet(entries: entries)
+        set.colors = ChartColorTemplates.joyful()
+        
+        let data = BarChartData(dataSet: set)
+        barChart.delegate = self
+        barChart.data = data
+        
+    }
+    
+    
+    
 }
+
+
 
 extension CryptoDetailVC : CryptoDetailListViewModelDelegate {
     func showDetail(_ presentation: CryptoPresentation) {
         
         let priceString = presentation.price.replacingOccurrences(of: ",", with: "")
-        
+        self.presentation = presentation
         detailNameLabel.text = presentation.name
         detailSymbolLabel.text = presentation.symbol
         
@@ -61,3 +102,5 @@ extension CryptoDetailVC : CryptoDetailListViewModelDelegate {
     
     
 }
+
+
