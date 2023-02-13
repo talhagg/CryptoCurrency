@@ -20,7 +20,7 @@ class CryptoDetailVC: UIViewController, ChartViewDelegate{
     
     
     @IBOutlet weak var barChartView: UIView!
-    var barChart = BarChartView()
+    var barChart = LineChartView()
     
     var viewModel : CryptoDetailListViewModelProtocol!
     private var presentation : CryptoPresentation!
@@ -60,10 +60,10 @@ class CryptoDetailVC: UIViewController, ChartViewDelegate{
         }
         
         
-        let set = BarChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.joyful()
+        let set = LineChartDataSet(entries: entries)
+        set.colors = ChartColorTemplates.material()
         
-        let data = BarChartData(dataSet: set)
+        let data = LineChartData(dataSet: set)
         barChart.delegate = self
         barChart.data = data
         
