@@ -7,7 +7,7 @@ Alamofire, SDWebImageSVGCoder and Charts third-party libraries are used. MVVM ar
 Protocol Oriented Programming and Modular structure are used.
 
 
-**Screenshoots :**
+**Video :**
 
 
 
