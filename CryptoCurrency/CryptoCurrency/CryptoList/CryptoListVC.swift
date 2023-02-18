@@ -47,7 +47,7 @@ class CryptoListVC: UIViewController {
         viewModel.load()
     
         tableView.refreshControl = refreshControl
-        
+
         setupMenu()
     }
     
@@ -83,7 +83,6 @@ extension CryptoListVC : CryptoListViewModelDelegate {
 
 extension CryptoListVC : UITableViewDataSource {
     
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cryptoList.count
     }
@@ -213,7 +212,6 @@ extension CryptoListVC : UISearchBarDelegate {
             })
         }
        
-        
         self.tableView.reloadData()
     }
 }
